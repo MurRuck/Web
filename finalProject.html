@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            overflow: auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .main-image:hover {
+            transform: scale(1.1);
+        }
+
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .thumbnails img {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumbnails img:hover {
+            border-color: #888;
+        }
+
+        .details {
+            display: none;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .details iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        .details-text {
+            margin: 10px 0;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .arrows {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .arrow {
+            cursor: pointer;
+            font-size: 24px;
+            color: #ffffff;
+            user-select: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="screen1" class="container">
+        <img id="mainImage1" class="main-image" src="Picture/food1.jpg" alt="Main Image" onclick="toggleDetails('details1')">
+
+        <div class="thumbnails">
+            <img class="thumbnail" src="Picture/food1-1.jpg" alt="Thumbnail 1" onclick="changeMainImage('mainImage1', 'Picture/food1-1.jpg')">
+            <img class="thumbnail" src="Picture/food1-2.jpg" alt="Thumbnail 2" onclick="changeMainImage('mainImage1', 'Picture/food1-2.jpg')">
+            <img class="thumbnail" src="Picture/food1-3.jpg" alt="Thumbnail 3" onclick="changeMainImage('mainImage1', 'Picture/food1-3.jpg')">
+            <img class="thumbnail" src="Picture/food1-4.jpg" alt="Thumbnail 4" onclick="changeMainImage('mainImage1', 'Picture/food1-4.jpg')">
+        </div>
+
+        <div id="details1" class="details">
+            <div class="details-text">피자와 칵테일을 같이 파는 장소<br>
+쉽게 칵테일을 즐겨볼수 있는 장점이 있다<br>
+피자도 추천할수 있을 정도로 맛있으며 합리적인 가격 </div>
+            <iframe 
+                src="https://map.naver.com/v5/entry/place/1248991131?c=16.63,0,0,3,dh" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div id="screen2" class="container hidden">
+        <img id="mainImage2" class="main-image" src="Picture/food2.jpg" alt="Main Image" onclick="toggleDetails('details2')">
+
+        <div class="thumbnails">
+            <img class="thumbnail" src="Picture/food2-1.jpg" alt="Thumbnail 1" onclick="changeMainImage('mainImage2', 'Picture/food2-1.jpg')">
+            <img class="thumbnail" src="Picture/food2-2.jpg" alt="Thumbnail 2" onclick="changeMainImage('mainImage2', 'Picture/food2-2.jpg')">
+            <img class="thumbnail" src="Picture/food2-3.jpg" alt="Thumbnail 3" onclick="changeMainImage('mainImage2', 'Picture/food2-3.jpg')">
+            <img class="thumbnail" src="Picture/food2-4.jpg" alt="Thumbnail 4" onclick="changeMainImage('mainImage2', 'Picture/food2-4.jpg')">
+        </div>
+
+        <div id="details2" class="details">
+            <div class="details-text">16000원대에 고기 라면 돌솥밥을 무한으로 먹을수 있는 장소<br>
+돈없고 배고픈 20대한테는 더할나위 없이 좋은 장소<br>
+음료수도 무한리필</div>
+            <iframe 
+                src="https://map.naver.com/p/entry/place/1954845254?c=18.84,0,0,3,dh" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div id="screen3" class="container hidden">
+        <img id="mainImage3" class="main-image" src="Picture/see1.jpg" alt="Main Image" onclick="toggleDetails('details3')">
+
+        <div class="thumbnails">
+            <img class="thumbnail" src="Picture/see1-1.jpg" alt="Thumbnail 1" onclick="changeMainImage('mainImage3', 'Picture/see1-1.jpg')">
+            <img class="thumbnail" src="Picture/see1-2.jpg" alt="Thumbnail 2" onclick="changeMainImage('mainImage3', 'Picture/see1-2.jpg')">
+            <img class="thumbnail" src="Picture/see1-3.jpg" alt="Thumbnail 3" onclick="changeMainImage('mainImage3', 'Picture/see1-3.jpg')">
+            <img class="thumbnail" src="Picture/see1-4.jpg" alt="Thumbnail 4" onclick="changeMainImage('mainImage3', 'Picture/see1-4.jpg')">
+        </div>
+
+        <div id="details3" class="details">
+            <div class="details-text">산책로가 잘 되어있고 자연을 만끽할수 있는 곳<br>
+여름에서 가을에 가면 해바라기 들판을 볼 수 있다</div>
+            <iframe 
+                src="https://map.naver.com/p/entry/place/16107899?c=13.51,0,0,3,dh" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div id="screen4" class="container hidden">
+        <img id="mainImage4" class="main-image" src="Picture/see2.jpg" alt="Main Image" onclick="toggleDetails('details4')">
+
+        <div class="thumbnails">
+            <img class="thumbnail" src="Picture/see2-1.jpg" alt="Thumbnail 1" onclick="changeMainImage('mainImage4', 'Picture/see2-1.jpg')">
+            <img class="thumbnail" src="Picture/see2-2.jpg" alt="Thumbnail 2" onclick="changeMainImage('mainImage4', 'Picture/see2-2.jpg')">
+            <img class="thumbnail" src="Picture/see2-3.jpg" alt="Thumbnail 3" onclick="changeMainImage('mainImage4', 'Picture/see2-3.jpg')">
+            <img class="thumbnail" src="Picture/see2-4.jpg" alt="Thumbnail 4" onclick="changeMainImage('mainImage4', 'Picture/see2-4.jpg')">
+        </div>
+
+        <div id="details4" class="details">
+            <div class="details-text">한남대의 자연과 역사를 볼 수 있는 장소<br>
+특히 봄에는 벚꽃이 아름답게 핀다</div>
+            <iframe 
+                src="https://map.naver.com/p/entry/place/19797142?c=16.66,0,0,3,dh&placePath=/home" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div id="screen5" class="container hidden">
+        <img id="mainImage5" class="main-image" src="Picture/enjoy1.jpg" alt="Main Image" onclick="toggleDetails('details5')">
+
+        <div class="thumbnails">
+            <img class="thumbnail" src="Picture/enjoy1-1.jpg" alt="Thumbnail 1" onclick="changeMainImage('mainImage5', 'Picture/enjoy1-1.jpg')">
+            <img class="thumbnail" src="Picture/enjoy1-2.jpg" alt="Thumbnail 2" onclick="changeMainImage('mainImage5', 'Picture/enjoy1-2.jpg')">
+            <img class="thumbnail" src="Picture/enjoy1-3.jpg" alt="Thumbnail 3" onclick="changeMainImage('mainImage5', 'Picture/enjoy1-3.jpg')">
+            <img class="thumbnail" src="Picture/enjoy1-4.jpg" alt="Thumbnail 4" onclick="changeMainImage('mainImage5', 'Picture/enjoy1-4.jpg')">
+        </div>
+
+        <div id="details5" class="details">
+            <div class="details-text">한남대 후문에 있는 카페 커피대신 차종류를 판다<br>
+카페인에 지쳐있는 당신들께 추천
+</div>
+            <iframe 
+                src="https://map.naver.com/p/entry/place/1701578408?c=13.51,0,0,3,dh" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div class="arrows">
+        <span class="arrow" onclick="navigatePage(-1)">&#8592; Previous</span>
+        <span class="arrow" onclick="navigatePage(1)">Next &#8594;</span>
+    </div>
+
+    <script>
+        let currentScreen = 1;
+        const totalScreens = 5;
+
+        function navigatePage(direction) {
+            document.getElementById(`screen${currentScreen}`).classList.add('hidden');
+            currentScreen = (currentScreen + direction - 1 + totalScreens) % totalScreens + 1;
+            document.getElementById(`screen${currentScreen}`).classList.remove('hidden');
+        }
+
+        function changeMainImage(mainImageId, image) {
+            document.getElementById(mainImageId).src = image;
+        }
+
+        function toggleDetails(detailsId) {
+            const details = document.getElementById(detailsId);
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
